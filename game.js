@@ -596,10 +596,12 @@ class AlienDMVGame {
             alienQuote.textContent = `"${alien.quote}"`;
             processingStatus.textContent = '';
         } else {
-            // Default waiting state
+            // Default waiting state - use emoji fallback
             alienSpriteContainer.innerHTML = '';
-            const defaultSprite = spriteManager.getSpriteElement('idle', null);
-            alienSpriteContainer.appendChild(defaultSprite);
+            const emojiElement = document.createElement('div');
+            emojiElement.className = 'sprite-emoji-fallback';
+            emojiElement.textContent = '👽';
+            alienSpriteContainer.appendChild(emojiElement);
             alienName.textContent = 'Waiting for aliens...';
             alienSpecies.textContent = '';
             alienQuote.textContent = '';

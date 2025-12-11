@@ -215,7 +215,17 @@ class SpriteManager {
     }
     
     // Get sprite element for an animation
-    getSpriteElement(animationName, speciesId = null) {
+    getSpriteElement(animationName, speciesId = null, _recursionDepth = 0) {
+        // Prevent infinite recursion
+        if (_recursionDepth > 2) {
+            console.error(`Recursion limit reached for animation: ${animationName}`);
+            const emoji = speciesId ? SPRITE_CONFIG.emojiFallbacks[speciesId] || '👽' : '👽';
+            const element = document.createElement('div');
+            element.className = 'sprite-emoji-fallback';
+            element.textContent = emoji;
+            return element;
+        }
+        
         if (!this.useSprites || !this.sheetsLoaded) {
             // Return emoji fallback
             const emoji = speciesId ? SPRITE_CONFIG.emojiFallbacks[speciesId] || '👽' : '👽';
@@ -228,7 +238,20 @@ class SpriteManager {
         const animation = SPRITE_CONFIG.animations[animationName];
         if (!animation) {
             console.warn(`Animation not found: ${animationName}`);
-            return this.getSpriteElement('idle', speciesId);
+            // Try to get proper idle animation based on species, or fallback to emoji
+            if (speciesId) {
+                const prefix = this.getSpeciesPrefix(speciesId);
+                const idleAnimation = `${prefix}_idle`;
+                if (SPRITE_CONFIG.animations[idleAnimation]) {
+                    return this.getSpriteElement(idleAnimation, speciesId, _recursionDepth + 1);
+                }
+            }
+            // Final fallback: return emoji
+            const emoji = speciesId ? SPRITE_CONFIG.emojiFallbacks[speciesId] || '👽' : '👽';
+            const element = document.createElement('div');
+            element.className = 'sprite-emoji-fallback';
+            element.textContent = emoji;
+            return element;
         }
         
         const element = document.createElement('div');
