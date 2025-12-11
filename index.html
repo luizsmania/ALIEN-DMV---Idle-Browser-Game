@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALIEN DMV - Idle Browser Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="resources">
+                <div class="resource">
+                    <span class="resource-icon">📄</span>
+                    <span class="resource-label">Paperwork:</span>
+                    <span id="paperwork-count" class="resource-value">0</span>
+                </div>
+                <div class="resource">
+                    <span class="resource-icon">🪪</span>
+                    <span class="resource-label">Licenses:</span>
+                    <span id="licenses-count" class="resource-value">0</span>
+                </div>
+                <div class="resource">
+                    <span class="resource-icon">⭐</span>
+                    <span class="resource-label">Cosmic Approval:</span>
+                    <span id="cosmic-approval-count" class="resource-value">0</span>
+                </div>
+            </div>
+            <button id="settings-btn" class="settings-btn">⚙️</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel - Queue -->
+            <div class="left-panel">
+                <h2>Alien Queue</h2>
+                <div id="queue-display" class="queue-display">
+                    <p class="empty-queue">No aliens in queue...</p>
+                </div>
+            </div>
+
+            <!-- Center Panel - Processing Desk -->
+            <div class="center-panel">
+                <div class="processing-desk">
+                    <h2>Processing Desk</h2>
+                    <div id="current-alien" class="current-alien">
+                        <div class="alien-card">
+                            <div class="alien-sprite">👽</div>
+                            <div class="alien-info">
+                                <div class="alien-name">Waiting for aliens...</div>
+                                <div class="alien-species"></div>
+                                <div class="alien-quote"></div>
+                            </div>
+                        </div>
+                        <div class="processing-bar-container">
+                            <div id="processing-bar" class="processing-bar">
+                                <div id="processing-fill" class="processing-fill"></div>
+                            </div>
+                            <div class="processing-time">
+                                <span id="processing-time-text">0%</span>
+                            </div>
+                        </div>
+                        <button id="stamp-btn" class="stamp-btn" disabled>
+                            <span class="stamp-icon">✍️</span>
+                            STAMP
+                        </button>
+                        <div id="processing-status" class="processing-status"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Upgrades -->
+            <div class="right-panel">
+                <div class="upgrade-tabs">
+                    <button class="upgrade-tab active" data-tab="processing">Processing</button>
+                    <button class="upgrade-tab" data-tab="automation">Automation</button>
+                    <button class="upgrade-tab" data-tab="queue">Queue</button>
+                    <button class="upgrade-tab" data-tab="prestige">Prestige</button>
+                </div>
+                <div class="upgrades-container">
+                    <div id="upgrades-processing" class="upgrade-section active">
+                        <h3>Processing Upgrades</h3>
+                        <div id="processing-upgrades" class="upgrades-list"></div>
+                    </div>
+                    <div id="upgrades-automation" class="upgrade-section">
+                        <h3>Automation Upgrades</h3>
+                        <div id="automation-upgrades" class="upgrades-list"></div>
+                    </div>
+                    <div id="upgrades-queue" class="upgrade-section">
+                        <h3>Queue Upgrades</h3>
+                        <div id="queue-upgrades" class="upgrades-list"></div>
+                    </div>
+                    <div id="upgrades-prestige" class="upgrade-section">
+                        <h3>Prestige</h3>
+                        <div id="prestige-content" class="prestige-content">
+                            <p>Reset your progress to gain Cosmic Approval Rating!</p>
+                            <p>Current multiplier: <span id="prestige-multiplier">1.00x</span></p>
+                            <button id="prestige-btn" class="prestige-btn" disabled>UNIVERSAL RECERTIFICATION</button>
+                            <p id="prestige-requirement" class="prestige-requirement">Requires 1000 Licenses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar - Events -->
+        <div class="bottom-bar">
+            <div id="event-display" class="event-display"></div>
+            <div id="notifications" class="notifications"></div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <button id="save-game-btn" class="settings-button">Save Game</button>
+            <button id="load-game-btn" class="settings-button">Load Game</button>
+            <button id="export-save-btn" class="settings-button">Export Save</button>
+            <button id="import-save-btn" class="settings-button">Import Save</button>
+            <button id="reset-game-btn" class="settings-button danger">Reset Game</button>
+        </div>
+    </div>
+
+    <script src="aliens.js"></script>
+    <script src="upgrades.js"></script>
+    <script src="events.js"></script>
+    <script src="sprites.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
+

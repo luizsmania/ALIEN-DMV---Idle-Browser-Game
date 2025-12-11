@@ -1,0 +1,41 @@
+Create a sprite sheet for "ALIEN DMV" browser game. Single PNG, transparent background, 64×64px per sprite, perfect grid alignment.
+
+LAYOUT (7 rows, 10 columns max):
+
+ROW 0 - Zorglax Blob (green blob):
+Columns 0-2: Idle (3 frames) - pulsing blob
+Columns 3-4: Process (2 frames) - being stamped
+Columns 5-7: Split (3 frames) - dividing into two
+
+ROW 1 - Slimoid Tentacloid (octopus):
+Columns 0-2: Idle (3 frames) - tentacles waving
+Columns 3-4: Process (2 frames) - holding form
+Columns 5-6: Smudge (2 frames) - ink splatter
+
+ROW 2 - Low-Gravity Greegan (floating):
+Columns 0-2: Idle (3 frames) - bobbing up/down
+Columns 3-4: Process (2 frames) - floating while processed
+Columns 5-8: Float (4 frames) - drifting away upward
+
+ROW 3 - Four-Eyed Bureaucrat (glasses):
+Columns 0-2: Idle (3 frames) - adjusting glasses
+Columns 3-4: Process (2 frames) - reviewing docs
+Columns 5-7: Self-approve (3 frames) - stamping own form
+
+ROW 4 - Time-Loop Worm:
+Columns 0-2: Idle (3 frames) - wiggling
+Columns 3-4: Process (2 frames) - being processed
+Columns 5-8: Reenter (4 frames) - exit right, reappear left
+
+ROW 5 - Exploding Kraknid:
+Columns 0-2: Idle (3 frames) - shaking/unstable
+Columns 3-4: Process (2 frames) - careful processing
+Columns 5-9: Explode (5 frames) - comedic BOOM with smoke
+
+ROW 6 - Bureaucrat Overlord (royal):
+Columns 0-3: Idle (4 frames) - floating majestically
+Columns 4-5: Process (2 frames) - divine processing
+Columns 6-9: Glow (4 frames) - golden energy aura
+
+STYLE: Pixel art or clean cartoon, comedic sci-fi, bright colors, absurd humor. Each sprite 64×64px, no gaps. Total: 640×448px minimum. PNG with transparency.
+
