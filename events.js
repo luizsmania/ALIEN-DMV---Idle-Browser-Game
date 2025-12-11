@@ -2,8 +2,8 @@
 const RANDOM_EVENTS = {
     galactic_inspection: {
         id: 'galactic_inspection',
-        name: 'Galactic Inspection',
-        description: 'Inspectors are watching! All approvals yield double rewards for 10 seconds.',
+        name: 'Inspeção Galáctica',
+        description: 'Inspetores estão observando! Todas as aprovações rendem recompensas dobradas por 10 segundos.',
         duration: 10000,
         effect: {
             paperworkMultiplier: 2.0,
@@ -15,8 +15,8 @@ const RANDOM_EVENTS = {
     
     black_hole_near_miss: {
         id: 'black_hole_near_miss',
-        name: 'Black Hole Near-Miss',
-        description: 'A black hole is disrupting operations! Pay 100 Paperwork to stabilize, or everything slows down.',
+        name: 'Quase Colisão com Buraco Negro',
+        description: 'Um buraco negro está perturbando as operações! Pague 100 Documentos para estabilizar, ou tudo fica mais lento.',
         duration: 30000,
         effect: {
             processingSpeedMultiplier: 0.5
@@ -31,8 +31,8 @@ const RANDOM_EVENTS = {
     
     cosmic_riot: {
         id: 'cosmic_riot',
-        name: 'Cosmic Riot',
-        description: 'Aliens demand faster service! Spawn rate temporarily increased by 50%.',
+        name: 'Revolta Cósmica',
+        description: 'Alienígenas exigem serviço mais rápido! Taxa de aparição temporariamente aumentada em 50%.',
         duration: 20000,
         effect: {
             spawnRateMultiplier: 1.5

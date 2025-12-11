@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALIEN DMV - Idle Browser Game</title>
+    <title>ALIEN DMV - Jogo Idle no Navegador</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,19 +13,22 @@
             <div class="resources">
                 <div class="resource">
                     <span class="resource-icon">📄</span>
-                    <span class="resource-label">Paperwork:</span>
+                    <span class="resource-label">Documentos:</span>
                     <span id="paperwork-count" class="resource-value">0</span>
                 </div>
                 <div class="resource">
                     <span class="resource-icon">🪪</span>
-                    <span class="resource-label">Licenses:</span>
+                    <span class="resource-label">Licenças:</span>
                     <span id="licenses-count" class="resource-value">0</span>
                 </div>
                 <div class="resource">
                     <span class="resource-icon">⭐</span>
-                    <span class="resource-label">Cosmic Approval:</span>
+                    <span class="resource-label">Aprovação Cósmica:</span>
                     <span id="cosmic-approval-count" class="resource-value">0</span>
                 </div>
+                <button id="convert-licenses-btn" class="convert-btn" title="Converter 100 Documentos → 1 Licença">
+                    🔄 Converter
+                </button>
             </div>
             <button id="settings-btn" class="settings-btn">⚙️</button>
         </div>
@@ -34,21 +37,21 @@
         <div class="main-content">
             <!-- Left Panel - Queue -->
             <div class="left-panel">
-                <h2>Alien Queue</h2>
+                <h2>Fila de Alienígenas</h2>
                 <div id="queue-display" class="queue-display">
-                    <p class="empty-queue">No aliens in queue...</p>
+                    <p class="empty-queue">Nenhum alienígena na fila...</p>
                 </div>
             </div>
 
             <!-- Center Panel - Processing Desk -->
             <div class="center-panel">
                 <div class="processing-desk">
-                    <h2>Processing Desk</h2>
+                    <h2>Mesa de Processamento</h2>
                     <div id="current-alien" class="current-alien">
                         <div class="alien-card">
                             <div class="alien-sprite">👽</div>
                             <div class="alien-info">
-                                <div class="alien-name">Waiting for aliens...</div>
+                                <div class="alien-name">Aguardando alienígenas...</div>
                                 <div class="alien-species"></div>
                                 <div class="alien-quote"></div>
                             </div>
@@ -63,7 +66,7 @@
                         </div>
                         <button id="stamp-btn" class="stamp-btn" disabled>
                             <span class="stamp-icon">✍️</span>
-                            STAMP
+                            CARIMBAR
                         </button>
                         <div id="processing-status" class="processing-status"></div>
                     </div>
@@ -73,31 +76,57 @@
             <!-- Right Panel - Upgrades -->
             <div class="right-panel">
                 <div class="upgrade-tabs">
-                    <button class="upgrade-tab active" data-tab="processing">Processing</button>
-                    <button class="upgrade-tab" data-tab="automation">Automation</button>
-                    <button class="upgrade-tab" data-tab="queue">Queue</button>
-                    <button class="upgrade-tab" data-tab="prestige">Prestige</button>
+                    <button class="upgrade-tab active" data-tab="processing">Processamento</button>
+                    <button class="upgrade-tab" data-tab="automation">Automação</button>
+                    <button class="upgrade-tab" data-tab="queue">Fila</button>
+                    <button class="upgrade-tab" data-tab="stats">Estatísticas</button>
+                    <button class="upgrade-tab" data-tab="prestige">Prestígio</button>
                 </div>
                 <div class="upgrades-container">
                     <div id="upgrades-processing" class="upgrade-section active">
-                        <h3>Processing Upgrades</h3>
+                        <h3>Melhorias de Processamento</h3>
                         <div id="processing-upgrades" class="upgrades-list"></div>
                     </div>
                     <div id="upgrades-automation" class="upgrade-section">
-                        <h3>Automation Upgrades</h3>
+                        <h3>Melhorias de Automação</h3>
                         <div id="automation-upgrades" class="upgrades-list"></div>
                     </div>
                     <div id="upgrades-queue" class="upgrade-section">
-                        <h3>Queue Upgrades</h3>
+                        <h3>Melhorias de Fila</h3>
                         <div id="queue-upgrades" class="upgrades-list"></div>
                     </div>
+                    <div id="upgrades-stats" class="upgrade-section">
+                        <h3>Estatísticas</h3>
+                        <div id="stats-content" class="stats-content">
+                            <div class="stat-item">
+                                <span class="stat-label">Alienígenas Processados:</span>
+                                <span id="stat-aliens-processed" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total de Documentos:</span>
+                                <span id="stat-total-paperwork" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Tempo de Jogo:</span>
+                                <span id="stat-play-time" class="stat-value">0s</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Melhorias Possuídas:</span>
+                                <span id="stat-upgrades" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Tamanho da Fila:</span>
+                                <span id="stat-queue-length" class="stat-value">0</span>
+                            </div>
+                        </div>
+                    </div>
                     <div id="upgrades-prestige" class="upgrade-section">
-                        <h3>Prestige</h3>
+                        <h3>Prestígio</h3>
                         <div id="prestige-content" class="prestige-content">
-                            <p>Reset your progress to gain Cosmic Approval Rating!</p>
-                            <p>Current multiplier: <span id="prestige-multiplier">1.00x</span></p>
-                            <button id="prestige-btn" class="prestige-btn" disabled>UNIVERSAL RECERTIFICATION</button>
-                            <p id="prestige-requirement" class="prestige-requirement">Requires 1000 Licenses</p>
+                            <p>Reinicie seu progresso para ganhar Aprovação Cósmica!</p>
+                            <p>Multiplicador atual: <span id="prestige-multiplier">1.00x</span></p>
+                            <button id="prestige-btn" class="prestige-btn" disabled>RECERTIFICAÇÃO UNIVERSAL</button>
+                            <p id="prestige-requirement" class="prestige-requirement">Requer 1000 Licenças</p>
                         </div>
                     </div>
                 </div>
@@ -115,12 +144,12 @@
     <div id="settings-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Settings</h2>
-            <button id="save-game-btn" class="settings-button">Save Game</button>
-            <button id="load-game-btn" class="settings-button">Load Game</button>
-            <button id="export-save-btn" class="settings-button">Export Save</button>
-            <button id="import-save-btn" class="settings-button">Import Save</button>
-            <button id="reset-game-btn" class="settings-button danger">Reset Game</button>
+            <h2>Configurações</h2>
+            <button id="save-game-btn" class="settings-button">Salvar Jogo</button>
+            <button id="load-game-btn" class="settings-button">Carregar Jogo</button>
+            <button id="export-save-btn" class="settings-button">Exportar Save</button>
+            <button id="import-save-btn" class="settings-button">Importar Save</button>
+            <button id="reset-game-btn" class="settings-button danger">Resetar Jogo</button>
         </div>
     </div>
 

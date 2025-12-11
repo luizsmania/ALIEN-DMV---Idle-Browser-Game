@@ -3,96 +3,96 @@ const ALIEN_SPECIES = {
     // Beginner Species
     zorglax_blob: {
         id: 'zorglax_blob',
-        name: 'Zorglax Blob',
+        name: 'Bolha Zorglax',
         emoji: '🟢',
-        baseSpeed: 3000,
-        basePaperwork: 10,
+        baseSpeed: 2500,
+        basePaperwork: 15,
         quirk: 'split',
         quirkChance: 0.10,
         unlocked: true,
         quotes: [
-            "I definitely wasn't abducting anyone. I swear.",
-            "Does this form require Form 17-B attached?",
-            "My UFO only wobbles slightly, is that fine?",
-            "I'm just a blob trying to get by in this universe."
+            "Eu definitivamente não estava abduzindo ninguém. Eu juro.",
+            "Este formulário requer o Anexo 17-B?",
+            "Meu OVNI apenas balança levemente, está tudo bem?",
+            "Sou apenas uma bolha tentando sobreviver neste universo."
         ],
         licenseNames: [
-            "Permit to Hover Menacingly",
-            "Certificate of Mild Abduction",
-            "Interstellar Parallel Parking License"
+            "Permissão para Pairar Ameaçadoramente",
+            "Certificado de Abdução Leve",
+            "Licença Interestelar de Estacionamento Paralelo"
         ]
     },
     
     slimoid_tentacloid: {
         id: 'slimoid_tentacloid',
-        name: 'Slimoid Tentacloid',
+        name: 'Tentacloide Slimoide',
         emoji: '🐙',
-        baseSpeed: 2000,
-        basePaperwork: 8,
+        baseSpeed: 1800,
+        basePaperwork: 12,
         quirk: 'smudge',
         quirkChance: 0.10,
         unlocked: true,
         quotes: [
-            "Oops, did I smudge that? My tentacles are so slippery!",
-            "Can I use all eight tentacles to fill this out?",
-            "I promise I won't accidentally erase anything... again.",
-            "Form-filling is hard when you have no bones!"
+            "Ops, eu borrei isso? Minhas tentáculos são tão escorregadias!",
+            "Posso usar todos os oito tentáculos para preencher isso?",
+            "Prometo que não vou apagar nada acidentalmente... de novo.",
+            "Preencher formulários é difícil quando você não tem ossos!"
         ],
         licenseNames: [
-            "Multi-Limbed Operation Permit",
-            "Tentacle Coordination Certificate",
-            "Slippery Surface Navigation License"
+            "Permissão de Operação Multi-Membros",
+            "Certificado de Coordenação de Tentáculos",
+            "Licença de Navegação em Superfície Escorregadia"
         ]
     },
     
     low_gravity_greegan: {
         id: 'low_gravity_greegan',
-        name: 'Low-Gravity Greegan',
+        name: 'Greegan de Baixa Gravidade',
         emoji: '👾',
-        baseSpeed: 1500,
-        basePaperwork: 5,
+        baseSpeed: 1200,
+        basePaperwork: 10,
         quirk: 'float_away',
         quirkChance: 0.15,
         unlocked: true,
         quotes: [
-            "Whoa, I'm floating again!",
-            "Can you anchor me to the desk?",
-            "Gravity is just a suggestion where I'm from.",
-            "Oops, there I go!"
+            "Uau, estou flutuando de novo!",
+            "Você pode me ancorar à mesa?",
+            "A gravidade é apenas uma sugestão de onde eu venho.",
+            "Ops, lá vou eu!"
         ],
         licenseNames: [
-            "Anti-Gravity Navigation Permit",
-            "Floating Vehicle Operation Certificate",
-            "Zero-G Maneuvering License"
+            "Permissão de Navegação Anti-Gravidade",
+            "Certificado de Operação de Veículo Flutuante",
+            "Licença de Manobra Zero-G"
         ]
     },
     
     four_eyed_bureaucrat: {
         id: 'four_eyed_bureaucrat',
-        name: 'Four-Eyed Bureaucrat',
+        name: 'Burocrata de Quatro Olhos',
         emoji: '👓',
-        baseSpeed: 4000,
-        basePaperwork: 12,
+        baseSpeed: 3500,
+        basePaperwork: 20,
         quirk: 'self_approval',
         quirkChance: 0.05,
         unlocked: true,
         quotes: [
-            "I've reviewed my own application. It's perfect.",
-            "As a fellow bureaucrat, I understand the process.",
-            "I can see all four sides of this form simultaneously.",
-            "Self-certification should be standard procedure."
+            "Revisei minha própria aplicação. Está perfeita.",
+            "Como burocrata, entendo o processo.",
+            "Posso ver todos os quatro lados deste formulário simultaneamente.",
+            "Auto-certificação deveria ser procedimento padrão."
         ],
         licenseNames: [
-            "Self-Approved Operation Permit",
-            "Bureaucratic Excellence Certificate",
-            "Multi-Perspective Navigation License"
+            "Permissão de Operação Auto-Aprovada",
+            "Certificado de Excelência Burocrática",
+            "Licença de Navegação Multi-Perspectiva"
         ]
     },
     
     // Mid-Game Species (unlocked via upgrades)
     time_loop_worm: {
         id: 'time_loop_worm',
-        name: 'Time-Loop Worm',
+        name: 'Verme de Loop Temporal',
         emoji: '🐛',
         baseSpeed: 2500,
         basePaperwork: 15,
@@ -101,21 +101,21 @@ const ALIEN_SPECIES = {
         unlocked: false,
         unlockRequirement: { type: 'upgrade', id: 'unlock_time_worms' },
         quotes: [
-            "I'll be back... I already was... I will be...",
-            "Time is just a circle, like my queue position.",
-            "I've done this before, and I'll do it again!",
-            "Past me already filled this out, but here I am!"
+            "Vou voltar... Já voltei... Vou voltar...",
+            "O tempo é apenas um círculo, como minha posição na fila.",
+            "Já fiz isso antes, e vou fazer de novo!",
+            "Eu do passado já preencheu isso, mas aqui estou eu!"
         ],
         licenseNames: [
-            "Temporal Navigation Permit",
-            "Loop-Time Operation Certificate",
-            "Chronological Paradox License"
+            "Permissão de Navegação Temporal",
+            "Certificado de Operação em Loop Temporal",
+            "Licença de Paradoxo Cronológico"
         ]
     },
     
     exploding_kraknid: {
         id: 'exploding_kraknid',
-        name: 'Exploding Kraknid',
+        name: 'Kraknid Explosivo',
         emoji: '💥',
         baseSpeed: 5000,
         basePaperwork: 20,
@@ -124,21 +124,21 @@ const ALIEN_SPECIES = {
         unlocked: false,
         unlockRequirement: { type: 'upgrade', id: 'unlock_kraknids' },
         quotes: [
-            "I'm feeling a bit... volatile today.",
-            "Don't worry, I only explode sometimes!",
-            "My species has a short fuse, literally.",
-            "BOOM! ...oh wait, not yet."
+            "Estou me sentindo um pouco... volátil hoje.",
+            "Não se preocupe, eu só explodo às vezes!",
+            "Minha espécie tem um pavio curto, literalmente.",
+            "BOOM! ...ah espera, ainda não."
         ],
         licenseNames: [
-            "Explosive Maneuver Permit",
-            "Volatile Operation Certificate",
-            "High-Energy Navigation License"
+            "Permissão de Manobra Explosiva",
+            "Certificado de Operação Volátil",
+            "Licença de Navegação de Alta Energia"
         ]
     },
     
     bureaucrat_overlord: {
         id: 'bureaucrat_overlord',
-        name: 'Bureaucrat Overlord',
+        name: 'Senhor Supremo Burocrata',
         emoji: '👑',
         baseSpeed: 8000,
         basePaperwork: 50,
@@ -147,15 +147,15 @@ const ALIEN_SPECIES = {
         unlocked: false,
         unlockRequirement: { type: 'upgrade', id: 'unlock_overlords' },
         quotes: [
-            "I AM THE BUREAUCRACY!",
-            "Your forms are acceptable... barely.",
-            "I've processed more forms than stars in the sky.",
-            "I approve of this approval process."
+            "EU SOU A BUROCRACIA!",
+            "Seus formulários são aceitáveis... por pouco.",
+            "Processei mais formulários do que estrelas no céu.",
+            "Aprovo este processo de aprovação."
         ],
         licenseNames: [
-            "Supreme Bureaucratic Authority",
-            "Overlord Navigation Permit",
-            "Ultimate Administrative Certificate"
+            "Autoridade Burocrática Suprema",
+            "Permissão de Navegação de Senhor Supremo",
+            "Certificado Administrativo Definitivo"
         ]
     }
 };

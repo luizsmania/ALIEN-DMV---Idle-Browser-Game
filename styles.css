@@ -19,6 +19,7 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     padding: 10px;
+    overflow: hidden;
 }
 
 /* Top Bar */
@@ -72,6 +73,41 @@ body {
     background: #357abd;
 }
 
+.convert-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-left: 10px;
+}
+
+.convert-btn:hover {
+    background: linear-gradient(135deg, #ee5a6f, #ff6b6b);
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(255, 107, 107, 0.4);
+}
+
+.convert-btn:active {
+    transform: scale(0.95);
+}
+
+.convert-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.convert-btn:disabled:hover {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    transform: none;
+    box-shadow: none;
+}
+
 /* Main Content */
 .main-content {
     display: grid;
@@ -79,6 +115,8 @@ body {
     gap: 15px;
     flex: 1;
     overflow: hidden;
+    align-items: start;
+    min-height: 0;
 }
 
 /* Left Panel - Queue */
@@ -88,6 +126,11 @@ body {
     padding: 15px;
     border: 2px solid #4a90e2;
     overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-self: start;
 }
 
 .left-panel h2 {
@@ -100,6 +143,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
 }
 
 .queue-item {
@@ -135,7 +181,10 @@ body {
     border: 2px solid #4a90e2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
 }
 
 .processing-desk h2 {
@@ -148,6 +197,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    min-height: 500px;
 }
 
 .alien-card {
@@ -156,16 +206,22 @@ body {
     border-radius: 10px;
     padding: 20px;
     text-align: center;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
 }
 
 .alien-sprite {
     font-size: 80px;
     margin-bottom: 10px;
-    animation: float 3s ease-in-out infinite;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80px;
+    height: 120px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 /* Sprite animation container */
@@ -175,13 +231,35 @@ body {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
-    animation: float 3s ease-in-out infinite;
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spriteFloat 3s ease-in-out infinite;
+}
+
+@keyframes spriteFloat {
+    0%, 100% { transform: translate(-50%, calc(-50% + 0px)); }
+    50% { transform: translate(-50%, calc(-50% - 10px)); }
 }
 
 /* Emoji fallback styling */
 .sprite-emoji-fallback {
     font-size: 80px;
     line-height: 1;
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spriteFloat 3s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -246,8 +324,14 @@ body {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.1s, box-shadow 0.3s;
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+    width: 280px;
+    text-align: center;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .stamp-btn:hover:not(:disabled) {
@@ -266,6 +350,14 @@ body {
 
 .stamp-icon {
     margin-right: 10px;
+    display: inline-block;
+}
+
+.stamp-bonus {
+    display: inline-block;
+    font-size: 20px;
+    color: #ffd700;
+    margin-left: 5px;
 }
 
 .processing-status {
@@ -379,6 +471,7 @@ body {
 .upgrade-cost-text {
     font-size: 14px;
     color: #ffd700;
+    transition: color 0.3s;
 }
 
 .upgrade-buy-btn {
@@ -434,6 +527,34 @@ body {
     margin-top: 10px;
 }
 
+.stats-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 5px;
+    border: 1px solid #4a90e2;
+}
+
+.stat-label {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.stat-value {
+    color: #4a90e2;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 /* Bottom Bar - Events */
 .bottom-bar {
     background: rgba(0, 0, 0, 0.5);
@@ -442,10 +563,18 @@ body {
     margin-top: 10px;
     border: 2px solid #4a90e2;
     min-height: 80px;
+    max-height: 200px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .event-display {
-    margin-bottom: 10px;
+    flex-shrink: 0;
+    max-height: 100px;
+    overflow-y: auto;
 }
 
 .event-card {
@@ -491,6 +620,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    max-height: 100px;
 }
 
 .notification {

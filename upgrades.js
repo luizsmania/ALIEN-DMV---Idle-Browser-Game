@@ -3,149 +3,147 @@ const UPGRADES = {
     // Processing Upgrades
     rubber_stamp_1: {
         id: 'rubber_stamp_1',
-        name: 'Rubber Stamp I',
+        name: 'Carimbo de Borracha I',
         category: 'processing',
-        cost: { type: 'paperwork', amount: 100 },
-        effect: { processingSpeedMultiplier: 1.1 },
-        maxLevel: 5,
-        description: 'Increases processing speed by 10%'
+        cost: { type: 'paperwork', amount: 50 },
+        effect: { processingSpeedMultiplier: 1.15 },
+        maxLevel: 10,
+        description: 'Aumenta a velocidade de processamento em 15%'
     },
     rubber_stamp_2: {
         id: 'rubber_stamp_2',
-        name: 'Rubber Stamp II',
+        name: 'Carimbo de Borracha II',
         category: 'processing',
-        cost: { type: 'paperwork', amount: 500 },
-        effect: { processingSpeedMultiplier: 1.1 },
-        maxLevel: 5,
-        description: 'Increases processing speed by 10%',
-        requirement: { upgrade: 'rubber_stamp_1', level: 5 }
+        cost: { type: 'paperwork', amount: 200 },
+        effect: { processingSpeedMultiplier: 1.15 },
+        maxLevel: 10,
+        description: 'Aumenta a velocidade de processamento em 15%'
     },
     rubber_stamp_3: {
         id: 'rubber_stamp_3',
-        name: 'Rubber Stamp III',
+        name: 'Carimbo de Borracha III',
         category: 'processing',
-        cost: { type: 'paperwork', amount: 2500 },
-        effect: { processingSpeedMultiplier: 1.1 },
-        maxLevel: 5,
-        description: 'Increases processing speed by 10%',
-        requirement: { upgrade: 'rubber_stamp_2', level: 5 }
+        cost: { type: 'paperwork', amount: 500 },
+        effect: { processingSpeedMultiplier: 1.15 },
+        maxLevel: 10,
+        description: 'Aumenta a velocidade de processamento em 15%'
     },
     rubber_stamp_4: {
         id: 'rubber_stamp_4',
-        name: 'Rubber Stamp IV',
+        name: 'Carimbo de Borracha IV',
         category: 'processing',
-        cost: { type: 'paperwork', amount: 10000 },
-        effect: { processingSpeedMultiplier: 1.1 },
-        maxLevel: 5,
-        description: 'Increases processing speed by 10%',
-        requirement: { upgrade: 'rubber_stamp_3', level: 5 }
+        cost: { type: 'paperwork', amount: 1500 },
+        effect: { processingSpeedMultiplier: 1.15 },
+        maxLevel: 10,
+        description: 'Aumenta a velocidade de processamento em 15%',
+        requirement: { upgrade: 'rubber_stamp_3', level: 3 }
     },
     rubber_stamp_5: {
         id: 'rubber_stamp_5',
-        name: 'Rubber Stamp V',
+        name: 'Carimbo de Borracha V',
         category: 'processing',
-        cost: { type: 'paperwork', amount: 50000 },
-        effect: { processingSpeedMultiplier: 1.1 },
-        maxLevel: 5,
-        description: 'Increases processing speed by 10%',
-        requirement: { upgrade: 'rubber_stamp_4', level: 5 }
+        cost: { type: 'paperwork', amount: 3000 },
+        effect: { processingSpeedMultiplier: 1.15 },
+        maxLevel: 10,
+        description: 'Aumenta a velocidade de processamento em 15%',
+        requirement: { upgrade: 'rubber_stamp_4', level: 3 }
     },
     infinite_ink_pad: {
         id: 'infinite_ink_pad',
-        name: 'Infinite Ink Pad',
+        name: 'Almofada de Tinta Infinita',
         category: 'processing',
-        cost: { type: 'paperwork', amount: 200 },
-        effect: { clickYield: 1 },
-        maxLevel: 1,
-        description: '+1 paperwork per click'
+        cost: { type: 'paperwork', amount: 75 },
+        effect: { clickYield: 2 },
+        maxLevel: 5,
+        description: '+2 documentos por clique (acumula)'
     },
     turbo_stamp: {
         id: 'turbo_stamp',
-        name: 'Turbo Stamp',
+        name: 'Carimbo Turbo',
         category: 'processing',
         cost: { type: 'paperwork', amount: 1000 },
         effect: { instantApprovalChance: 0.05 },
         maxLevel: 5,
-        description: '5% chance for instant approval'
+        description: '5% de chance de aprovação instantânea'
     },
     
     // Automation Upgrades
     assistant_drone: {
         id: 'assistant_drone',
-        name: 'Assistant Drone',
+        name: 'Drone Assistente',
         category: 'automation',
-        cost: { type: 'paperwork', amount: 500 },
+        cost: { type: 'paperwork', amount: 150 },
         effect: { autoProcessInterval: 5000 },
-        maxLevel: 10,
-        description: 'Auto-approves 1 alien every 5 seconds',
-        levelEffect: (level) => ({ autoProcessInterval: 5000 - (level * 400) })
+        maxLevel: 20,
+        description: 'Auto-aprova 1 alienígena a cada 5 segundos (mais rápido com níveis)',
+        levelEffect: (level) => ({ autoProcessInterval: Math.max(500, 5000 - (level * 250)) })
     },
     tentacle_intern: {
         id: 'tentacle_intern',
-        name: 'Tentacle Intern',
+        name: 'Estagiário Tentáculo',
         category: 'automation',
         cost: { type: 'paperwork', amount: 2000 },
         effect: { processingSpeedMultiplier: 1.2, errorChance: 0.10 },
         maxLevel: 5,
-        description: 'Speeds processing by 20%, but 10% error chance'
+        description: 'Acelera processamento em 20%, mas 10% de chance de erro'
     },
     auto_sorting_system: {
         id: 'auto_sorting_system',
-        name: 'Auto Sorting System',
+        name: 'Sistema de Classificação Automática',
         category: 'automation',
         cost: { type: 'paperwork', amount: 5000 },
         effect: { quirkPenaltyReduction: 0.25 },
         maxLevel: 4,
-        description: 'Reduces quirk penalties by 25%'
+        description: 'Reduz penalidades de peculiaridades em 25%'
     },
     
     // Queue Upgrades
     extended_hallway: {
         id: 'extended_hallway',
-        name: 'Extended Hallway',
+        name: 'Corredor Estendido',
         category: 'queue',
         cost: { type: 'paperwork', amount: 300 },
         effect: { spawnRateMultiplier: 1.2 },
         maxLevel: 10,
-        description: 'Increases alien spawn rate by 20%'
+        description: 'Aumenta a taxa de aparição de alienígenas em 20%'
     },
     anti_gravity_cones: {
         id: 'anti_gravity_cones',
-        name: 'Anti-Gravity Cones',
+        name: 'Cones Anti-Gravidade',
         category: 'queue',
         cost: { type: 'paperwork', amount: 1500 },
         effect: { floatAwayReduction: 0.5 },
         maxLevel: 3,
-        description: 'Reduces "float away" events by 50%'
+        description: 'Reduz eventos de "flutuar para longe" em 50%'
     },
     
     // Species Unlock Upgrades
     unlock_time_worms: {
         id: 'unlock_time_worms',
-        name: 'Temporal Portal',
+        name: 'Portal Temporal',
         category: 'queue',
         cost: { type: 'licenses', amount: 10 },
         effect: { unlockSpecies: 'time_loop_worm' },
         maxLevel: 1,
-        description: 'Unlocks Time-Loop Worms'
+        description: 'Desbloqueia Vermes de Loop Temporal'
     },
     unlock_kraknids: {
         id: 'unlock_kraknids',
-        name: 'Explosion Containment',
+        name: 'Contenção de Explosão',
         category: 'queue',
         cost: { type: 'licenses', amount: 25 },
         effect: { unlockSpecies: 'exploding_kraknid' },
         maxLevel: 1,
-        description: 'Unlocks Exploding Kraknids'
+        description: 'Desbloqueia Kraknids Explosivos'
     },
     unlock_overlords: {
         id: 'unlock_overlords',
-        name: 'Overlord Reception Hall',
+        name: 'Salão de Recepção do Senhor Supremo',
         category: 'queue',
         cost: { type: 'licenses', amount: 50 },
         effect: { unlockSpecies: 'bureaucrat_overlord' },
         maxLevel: 1,
-        description: 'Unlocks Bureaucrat Overlords'
+        description: 'Desbloqueia Senhores Supremos Burocratas'
     }
 };
 
